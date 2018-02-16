@@ -24,7 +24,6 @@ class ApplicationController < Sinatra::Base
 
   get '/posts/:id' do #finds a single post
       @post = Post.find(params[:id])
-      binding.pry
       erb :show
   end
 
