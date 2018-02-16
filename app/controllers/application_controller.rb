@@ -33,7 +33,7 @@ class ApplicationController < Sinatra::Base
   end
 
   patch '/posts/:id' do #edit a post
-        @post = Post.find_by_id(params[:id])
+        @post = Post.find(params[:id])
         @post.name = params[:name]
         @post.content = params[:content]
         @post.save
