@@ -18,7 +18,6 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/posts' do # loads index page/shows all posts
-    binding.pry
       @posts = Post.all
       erb :index
   end
