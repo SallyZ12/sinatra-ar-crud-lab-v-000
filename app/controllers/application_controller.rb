@@ -24,17 +24,17 @@ class ApplicationController < Sinatra::Base
 
   get '/posts/:id' do #finds a single post
     # binding.pry
-      @post = Post.find_by(params[:id])
+      @post = Post.find(params[:id])
       erb :show
   end
 
   get '/posts/:id/edit' do #takes you to form to edit
-        @post = Post.find_by(params[:id])
+        @post = Post.find(params[:id])
         erb :edit
   end
 
   patch '/posts/:id' do #edit a post
-        @post = Post.find_by(params[:id])
+        @post = Post.find(params[:id])
         @post.name = params[:name]
         @post.content = params[:content]
         @post.save
@@ -43,7 +43,7 @@ class ApplicationController < Sinatra::Base
 
 
   delete '/posts/:id/delete' do #delete a post
-      @post = Post.find_by(params[:id])
+      @post = Post.find(params[:id])
       @post.destroy
       erb :delete
   end
