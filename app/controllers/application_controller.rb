@@ -23,12 +23,12 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/posts/:id' do #finds a single post
-      @post = Post.find_by(params[:id])
+      @post = Post.find(params[:id])
       erb :show
   end
 
   get '/posts/:id/edit' do #takes you to form to edit
-        @post = Post.find_by(params[:id])
+        @post = Post.find(params[:id])
         erb :edit
   end
 
